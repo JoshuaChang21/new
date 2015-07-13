@@ -1,0 +1,839 @@
+.thumbnail 
+{
+	border: 0 none;
+	box-shadow: none;
+	background-color:rgba(0,0,0,0);
+}
+
+@media (min-width: 250px)
+{	
+	/*button*/
+	.storebtn
+	{
+		width:100%;
+		margin:10px auto;
+	}
+	.show > .btn
+	{
+		width:100%;
+		margin:15px auto;
+	}
+	.second > div > .btn, .second_bun > div > .btn, .second_bun2 > div > .btn, .second_add> div > .btn , .second_add2> div > .btn
+	{	width:45%;
+		margin: 10px 1.25%;
+	}
+	.third > div > .btn 
+	{
+		width:45%;
+		margin: 10px 1.25%;
+	}
+	.product_bundle > .btn , .product_addon > .btn{
+		width:100%;
+		margin-top:3%;
+	}
+	
+	/*tab*/
+	.tab {
+		width:100%;
+		text-align: center;
+		font-size:20px;
+		margin: 2% auto;
+
+	}
+	.tabs > .nav {
+		width:100%;
+		margin: auto;
+		background-color: #F5F5F5;
+	}
+	.nav > li > a {
+		color:gray;
+	}
+
+	/*top left img text*/
+	.img_top{
+		text-align: center;	
+	}
+
+	.text_top{
+		text-align: left;	
+		font-size: 13px;
+		padding-left: 2%;
+	}
+	/*some adjustment*/
+	.col-xs-7 {
+		padding-left:5px;
+	}
+	.col-xs-5 {
+		padding-right: 5px;
+	}
+
+	/*font */
+	.product_bundle > h2, .product_addon > h2{
+		padding-bottom: 2%;
+		border-bottom: 1px black solid;
+		text-align: center;
+	}
+
+	.product_bundle > div > div > p{
+		font-size: 13px;
+	}	
+
+	.text_top > p {
+		 text-indent: -6px;
+		 margin:0px;
+		 font-size:10px;
+	}
+
+
+	/*down image*/
+	.bundle_pic > div > a > img, .addon_pic> div > a > img {
+		margin-top: 5%;
+	}
+
+	.text_top > div	 {
+		text-indent: -2%;	
+	}
+
+	.nav-text > div {
+/*		margin-top: 10px;*/
+		min-height:115px;
+	}
+	.sale {
+		text-align: center;
+		width:90%;
+		margin-left:5%;
+		height:55px;
+		background-color:#8B7500;
+	}
+
+	.sale  > img{
+		position: relative;
+		right:13%;
+		top:-25%;
+	}
+	.sale > span {		
+		position:relative;
+		right:10%;
+		top:-15%;
+		color:white;
+		font-size:15px;
+	}
+
+	.bundle_pic > .sale , .addon_pic > .sale{
+		width:90%;
+		margin-left:5%;
+		margin-top:3%;
+	}
+
+}
+
+@media (min-width: 600px)
+{
+	/*button*/
+	.storebtn
+	{
+		width:100%;
+		margin:10px auto;
+	}
+	.show > .btn
+	{
+		width:100%;
+		margin:15px auto;
+	}
+	.second > div > .btn ,.second_bun > div > .btn, .second_bun2 > div > .btn, .second_add> div > .btn , .second_add2> div > .btn
+	{	width:45%;
+		margin: 10px 1.25%;
+	}
+
+	.third > div > .btn 
+	{
+		width:45%;
+		margin: 10px 1.25%;
+	}
+	.product_bundle > .btn , .product_addon > .btn{
+		width:100%;
+		margin-top:3%;
+	}
+
+	/*tab*/
+	.tab {
+		width:100%;
+		text-align: center;
+		font-size:20px;
+		margin: 2% auto;
+	}
+	.tabs > .nav {
+		width:100%;
+		margin: auto;
+		background-color: #F5F5F5;
+	}
+
+	/*fonnt */
+	.product_bundle > div > div > p{
+		font-size: 13px;
+	}	
+	.product_bundle > h2, .product_addon > h2{
+		padding-bottom: 2%;
+		border-bottom: 1px black solid;
+		text-align: center;
+	}
+
+	.text_top > div	 {
+		text-indent: 0%;	
+	}
+
+	/*top left img text*/
+	.img_top{
+		text-align: center;	
+	}
+
+	.text_top{
+		text-align: left;	
+		font-size: 13px;
+		padding-left: 12%;
+	}
+	/*some adjustment*/
+	.col-xs-7 {
+		padding-left:5px;
+	}
+	.col-xs-5 {
+		padding-right: 5px;
+	}
+
+	/*down img*/
+	.bundle_pic > div > a > img, .addon_pic> div > a > img {
+		margin-top: 5%;
+		margin-left: 10%;
+	}
+	.nav-text > div {
+		margin-top: 10px;
+		min-height:70px;
+	}
+
+	.sale {
+		text-align: center;
+		width:70%;
+		margin-left:15%;
+		height:55px;
+		background-color:#8B7500;
+	}
+
+	.sale  > img{
+		position: relative;
+		right:22%;
+		top:-25%;
+	}
+	.sale > span {		
+		position:relative;
+		right:10%;
+		top:-15%;
+		color:white;
+		font-size:15px;
+	}
+
+	.bundle_pic > .sale , .addon_pic > .sale{
+		width:72%;
+		margin-left:15%;
+	}
+}
+
+@media (min-width:768px) and (max-width:992px)
+{	
+	/*button */
+	.storebtn
+	{
+		width:115;
+		margin-right:10px;
+		font-size:15px;
+	}
+
+	.show > .btn
+	{
+		width:115;
+		position: absolute;
+		left:275px;
+	}
+	.second > div > .btn,.second_bun > div > .btn, .second_bun2 > div > .btn, .second_add> div > .btn , .second_add2> div > .btn
+	{	
+		width:115;
+		margin:0px 10px 0px 0px;
+	}
+
+	.third > div > .btn
+	{	
+		width:115;
+		margin:0px 10px 0px 0px;
+	}
+	.product_bundle > .btn , .product_addon > .btn{
+		width:115;
+		position: absolute;
+		left:275px;
+	}
+
+	/*tab*/
+	.tab {
+		width:15%;
+		font-size:12px;
+		margin: 2% 2%;
+	}
+
+	.tabs > .nav {
+		width:110%;
+		height:80px;
+		margin: 25px auto;
+		background-color: #F5F5F5;
+		left:-5%;
+		position: relative;
+	}
+
+	.tabs > .nav > li:nth-child(1){
+		margin-left: 11%;
+	}
+
+	.nav > li > a {
+		color:gray;
+	}
+
+	/*top left img text*/
+	.img_top{
+		text-align: left;	
+	}
+
+	.text_top{
+		text-align: left;	
+		font-size: 12px;
+		padding-left: 8%;
+	}
+
+	/*font */
+	.product_bundle > h2, .product_addon > h2{
+		padding-bottom: 2%;
+		border-bottom: 1px black solid;
+		text-align: left;
+	}
+
+	.text_top > div	 {
+		text-indent: -2%;	
+	}
+	/*down img*/
+	.bundle_pic > div > a > img, .addon_pic> div > a > img {
+		margin-left: 5%;
+	}
+	.nav-text > div {
+		margin-top: 10px;
+		min-height:70px;
+	}
+
+	.sale {
+		text-align: center;
+		width:80%;
+		margin-left:14%;
+		height:55px;
+		background-color:#8B7500;
+	}
+
+	.sale  > img{
+		position: relative;
+		right:18%;
+		top:-25%;
+	}
+	.sale > span {		
+		position:relative;
+		right:10%;
+		top:-15%;
+		color:white;
+		font-size:15px;
+	}
+
+	.bundle_pic > .sale , .addon_pic > .sale{
+		width:85%;
+		margin-left:15%;
+	}
+
+}
+
+@media (min-width: 992px) 
+{	
+	/*button */
+	.storebtn
+	{
+		width:120;
+		margin-right:10px;
+		font-size:15px;
+	}
+
+	.show > .btn{
+		width:120;
+		position: absolute;
+		left:260px;
+	}
+	.second > div > .btn,.second_bun > div > .btn, .second_bun2 > div > .btn, .second_add> div > .btn , .second_add2> div > .btn
+	{	
+		width:120;
+		margin:0px 10px 0px 0px;
+
+	}
+	.third > div > .btn
+	{	
+		width:120;
+		margin:0px 10px 0px 0px;
+	}
+	.product_bundle > .btn , .product_addon > .btn{
+		width:120;
+		position: absolute;
+		left:260px;
+	}
+
+	/*tab */
+	.tab {
+		width:15%;
+		font-size:13px;
+		margin: 2% 2%;
+	}
+
+	.tabs > .nav {
+		width:110%;
+		height:80px;
+		margin: 25px auto;
+		background-color: #F5F5F5;
+		left:-5%;
+		position: relative;
+	}
+
+	.tabs > .nav > li:nth-child(1){
+		margin-left: 11%;
+	}
+
+	.nav > li > a {
+		color:gray;
+	}
+
+	/*top left img text*/
+	.img_top{
+		text-align: left;
+		margin-left: 3%;	
+	}
+
+	.text_top{
+		text-align: left;	
+		padding-left: 8%;
+		font-size:13px;
+	}
+
+	/*font */
+	.product_bundle > h2, .product_addon > h2{
+		padding-bottom: 2%;
+		border-bottom: 1px black solid;
+		text-align: left;
+	}
+
+	.text_top > div	 {
+		text-indent: -2%;	
+	}
+	/*some adjustment */
+	.bundle_pic {
+		padding-right: 3%;
+	}
+
+	.col-lg-5 {
+		padding-left: 0px;
+	}
+
+	/*img */
+	.bundle_pic > div > a > img, .addon_pic> div > a > img {
+		margin-left: 5%;
+	}
+	.nav-text > div {
+		margin-top: 10px;
+		min-height:70px;
+	}
+
+	.sale {
+		text-align: center;
+		width:80%;
+		margin-left:14%;
+		height:55px;
+		background-color:#8B7500;
+	}
+
+	.sale  > img{
+		position: relative;
+		right:13%;
+		top:-25%;
+	}
+	.sale > span {		
+		position:relative;
+		right:10%;
+		top:-5%;
+		color:white;
+		font-size:20px;
+	}
+
+	.bundle_pic > .sale , .addon_pic > .sale{
+		width:85%;
+		margin-left:15%;
+	}
+	.prod_top{
+		margin-top: 15px;
+	}
+
+}
+
+@media (min-width:1300px)
+{	
+	/*button */
+	.storebtn
+	{
+		width:160;
+		margin-right:5px;
+	}
+	.show > .btn{
+		width:160;
+		position: absolute;
+		left:335px;
+	}
+	.second > div > .btn,.second_bun > div > .btn, .second_bun2 > div > .btn, .second_add> div > .btn , .second_add2> div > .btn
+	{	
+		width:160;
+		margin:0px 5px 0px 0px;
+	}
+
+	.third > div > .btn
+	{	
+		width:160;
+		margin:0px 5px 0px 0px;
+	}
+	.product_bundle > .btn , .product_addon > .btn{
+		width:160;
+		position: absolute;
+		left:335;
+	}
+
+	/*tab */
+	.tab {
+		width:15%;
+		font-size:18px;
+		margin: 2% 2%;
+	}
+
+	.tabs > .nav {
+		width:110%;
+		height:100px;
+		margin: 25px auto;
+		background-color: #F5F5F5;
+		left:-5%;
+		position: relative;
+	}
+
+	.tabs > .nav > li:nth-child(1){
+		margin-left: 11%;
+	}
+
+	.nav > li > a {
+		color:gray;
+	}
+
+	/*top left img text*/
+	.img_top{
+		text-align: left;
+		margin-left: 13%;	
+	}
+
+	.text_top{
+		text-align: left;	
+		padding-left: 18%;
+		font-size: 14px;
+	}
+
+	/*font */
+	.product_bundle > h2, .product_addon > h2{
+		padding-bottom: 2%;
+		border-bottom: 1px black solid;
+		text-align: left;
+	}
+	.text_top > div	 {
+		text-indent: 0%;	
+	}
+
+	/*some adjustment */
+	.bundle_pic {
+		padding-right: 3%;
+	}
+
+	/*down img */
+	.bundle_pic > div > a > img, .addon_pic> div > a > img {
+		margin-left: 5%;
+	}
+	.nav-text > div {
+		margin-top: 10px;
+		min-height:70px;
+	}
+	
+	.sale {
+		text-align: center;
+		width:62%;
+		margin-left:20%;
+		height:55px;
+		background-color:#8B7500;
+	}
+
+	.sale  > img{
+		position: relative;
+		right:15%;
+		top:-25%;
+	}
+	.sale > span {		
+		position:relative;
+		right:10%;
+		top:-5%;
+		color:white;
+		font-size:20px;
+	}
+
+	.bundle_pic > .sale , .addon_pic > .sale{
+		width:70%;
+		margin-left:15%;
+	}
+	.prod_top{
+		margin-top: 15px;
+	}
+
+	.first > h1 {
+		font-size: 40px;
+		margin-top: 0px;
+	}
+
+}
+
+@media (min-width: 1550px) 
+{	
+	/*button */
+	.storebtn
+	{
+		width: 180;
+		margin-right:30px;
+	}
+
+	.show > .btn{
+		width:180;
+		position: absolute;
+		left:385px;
+	}
+	.second > div > .btn,.second_bun > div > .btn, .second_bun2 > div > .btn, .second_add> div > .btn , .second_add2> div > .btn
+	{	
+		width:180;
+		margin:10px 30px 10px 0px;
+	}
+
+	.third > div > .btn
+	{	
+		width:180;
+		margin:10px 30px 10px 0px;
+	}
+	.product_bundle > .btn , .product_addon > .btn{
+		width:180;
+		position: absolute;
+		left:385px;
+	}
+
+	/*tab*/
+	.tab {
+		width:15%;
+		font-size:22px;
+		margin: 2% 2%
+	}
+
+	.tabs > .nav {
+		width:110%;
+		height:100px;
+		margin: 25px auto;
+		background-color: #F5F5F5;
+		left:-5%;
+		position: relative;	
+	}
+	
+	.tabs > .nav > li:nth-child(1){
+		margin-left: 12%;
+	}
+
+	.nav > li > a {
+		color:gray;
+	}
+	
+	/*top left img text*/
+	.img_top{
+		text-align: left;
+		margin-left: 18%;	
+	}
+	.text_top{
+		text-align: left;	
+		padding-left: 21%;
+		font-size: 17px;
+	}
+
+	/*font*/
+	.product_bundle > h2, .product_addon > h2{
+		padding-bottom: 2%;
+		border-bottom: 1px black solid;
+		text-align: left;
+	}
+	.text_top > div	 {
+		text-indent: 0%;	
+	}
+
+	/*img */
+	.bundle_pic > div > a > img, .addon_pic> div > a > img {
+		margin-left:11%;
+	}
+	.img_top > a > img, .bundle_pic > div > a > img, .addon_pic> div > a > img{
+		width:80%;
+	} 
+
+/*	.product {
+		margin-top: 2%;
+	}*/
+	.nav-text > div {
+		margin-top: 10px;
+		min-height:70px;
+	}
+
+	.sale {
+		text-align: center;
+		width:60%;
+		margin-left:25%;
+		height:55px;
+		background-color: #8B7500;
+	}
+
+	.sale  > img{
+		position: relative;
+		right:15%;
+		top:-25%;
+	}
+	.sale > span {		
+		position:relative;
+		right:10%;
+		top:-5%;
+		color:white;
+		font-size:25px;
+	}
+
+	.bundle_pic > .sale , .addon_pic > .sale{
+		width:70%;
+		margin-left:20%;
+	}
+	.prod_top{
+		margin-top: 15px;
+	}
+
+	.first > h1 {
+		font-size: 45px;
+		margin-top: 0px;
+	}
+
+}
+
+
+
+
+.first, .second > div, .third > div, ,.second_bun > div, .second_bun2 > div, .second_add> div, .second_add2> div{
+	margin-left: 1px;
+}
+
+.first_bun > div, .first_bun2 > div, .first_add> div, .first_add2> div {
+	margin-left: 1px;
+}
+
+.first> .btn, .first_bun > .btn, .first_bun2 > .btn, .first_add> .btn, .first_add2> .btn{
+	border-width: 2px;
+	background-color: white;
+	font-size:20px;
+}
+
+.first >.btn:hover,.first_bun >.btn:hover, .first_bun2 >.btn:hover, .first_add>.btn:hover, .first_add2>.btn:hover{
+	outline:none;
+	background-color:transparent;
+	border-color: #ccc;
+}
+
+.second >div > .btn:hover, .second_bun > div > .btn:hover, .second_bun2 > div >.btn:hover, .second_add> div >.btn:hover , .second_add2> div >.btn:hover{
+	outline:none;
+	background-color:transparent;
+	border-color: #ccc;
+}
+
+.second > div  > .btn, .second_bun > div > .btn, .second_bun2 > div > .btn, .second_add> div > .btn , .second_add2> div > .btn{
+	border-color: #ccc;
+	border-width: 2px;
+	background-color: white;
+	font-size:20px;
+}
+
+.third > div> .btn{
+	border-color: #ccc;
+	border-width: 2px;
+	background-color: white;
+	font-size:20px;
+}
+
+.third > div> .btn:hover{
+	outline:none;
+	background-color:transparent;	
+	border-color: #ccc;
+}
+
+.show > span {
+	font-size:15px;
+	font-family: sans-serif;
+	margin-right: 5px;
+}
+
+.tab-pane {
+	margin-top: 5%;
+}
+
+.bundle_pic, .addon_pic{
+	margin-top: 2%;
+}
+
+.product_bundle > div > div > ul, .product_addon > div > ul{
+	padding-left: 15px;
+}
+
+.product_bundle > div > div > ul > li , .product_addon > div > ul> li{
+	font-size:13px;
+}
+
+.bundle , .addon{
+	margin-top: 8%;
+}
+
+.product_bundle > span , .product_addon > span{
+	font-size:15px;
+	font-family: sans-serif;
+	margin-right: 5px;
+}
+/*.product_bundle > .btn , .product_addon > .btn{
+	width:25%;
+	position: absolute;
+	left:300px;
+}*/
+.product_bundle , .product_addon {
+	margin-bottom: 10%;
+}
+hr {
+	display: block; height: 3px;
+    border: 0; border-top: 1px solid black;
+    margin: 1em 0; padding: 0; 
+}
+
+.body1 > .container-fluid , .tab_container{
+	margin-top:3%;
+}
+
+.addon > a > h5{
+	color:black;
+} 
+
+
+

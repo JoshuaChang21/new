@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Blank Template for Bootstrap</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link href="store.css" rel="stylesheet">
+    <script type="text/javascript" src="./mustache.js-master/mustache.js"></script> 
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<script>
+
+    var parser = {};
+    function load(){
+        $.ajax ({
+            url:"product.json",
+            dataType:"text", 
+            success: function(data){
+                parser = $.parseJSON(data);
+                
+                //object_plat decide whole platform display
+                var object_plat = new platformObject();
+                getTotalPlatform(object_plat);
+                
+                //object_deli decide whole delivery display
+                var object_deli = new deliverywayObject();
+                getTotalDelivery(object_deli);
+                
+                //my_object is the main product
+                var my_object = new product();
+                getTitle(my_object);
+                getImageUrl(my_object);
+                getDescription(my_object);
+            }
+        });
+    }
+
+    
+    function platformObject(){
+        this.totalnumber = 0;
+        this.platformdata = [];
+    }
+    function getTotalPlatform(obj){
+        var product_length = parser.ProductSetting.length;
+        var count_win = 0;
+        var count_mac = 0;
+
+        for(var i=0;i<product_length;i++){
+            if(parser.ProductSetting[i].platform == "Win"){
+                count_win ++;
+            }
+            if(parser.ProductSetting[i].platform == "Mac"){
+                count_mac ++;
+            }
+        }
+        if(count_win >0 && count_mac > 0){
+            obj.totalnumber = 2;
+            obj.platformdata=["Win", "Mac"];
+        }
+        else if(count_win >0 && count_mac == 0){
+            obj.totalnumber = 1;
+            obj.platformdata= ['Win'];
+        }
+        else if(count_win == 0 && count_mac > 0){
+            obj.totalnumber=1;
+            obj.platformdata= ['Mac'];
+        }
+        else {
+             obj.totalnumber=0;
+             obj.platformdata=[];
+        }
+    }
+
+    function deliverywayObject(){
+        this.totaldelinum= 0;
+        this.deliveryway = [];
+    }
+    function getTotalDelivery(obj){
+        var product_length = parser.ProductSetting.length;
+        var deli_box = 0;
+        var deli_download = 0;
+        
+        for(var i=0;i<product_length;i++){
+            if(parser.ProductSetting[i].DeliveryType == 1){
+                deli_box ++;
+            }
+            if(parser.ProductSetting[i].DeliveryType == 2){
+                deli_download ++;
+            }
+        }
+
+        if(deli_box >0 && deli_download > 0){
+            obj.totaldelinum = 2;
+            obj.deliveryway=["1", "2"];
+        }
+        else if(deli_box >0 && deli_download == 0){
+            obj.totaldelinum = 1;
+            obj.deliveryway= ['1'];
+        }
+        else if(deli_box == 0 && deli_download > 0){
+            obj.totaldelinum=1;
+            obj.deliveryway= ['2'];
+        }
+        else {
+             obj.totaldelinum=0;
+             obj.deliveryway=[];
+        }
+    }
+    function product(){
+        this.title = {};
+        this.imageurl = {};
+        this.description = {};
+    }
+    function getTitle(obj){
+        obj.title = parser.title;
+    }
+    function getImageUrl(obj){
+        obj.imageurl = parser.image;
+    }
+    function getDescription(obj){
+        obj.description = parser.desc;
+    }
+
+
+
+</script>
+
+<body onload = "load()">
+    <!-- <button type="button" class="btn btn-lg btn-default" onclick="">version</button> -->
+    
+</body>
+</html>
+
+<!--         // $.getJSON("product.json", function(data){
+        //     console.log("success");
+
+        //     var title = "<span>Title:</span> <span>{{title}}</span>";
+        //     var product = "Products:<ul>{{#ProductSetting}}" + "<li>{{version}} {{platform}} {{DeliveryType}}" + "{{/ProductSetting}}</ul>";
+        //     var html_title = Mustache.to_html(title,data);
+        //     var html = Mustache.to_html(product, data);
+        //     $('#sampleArea').html(html);
+        //     $('#product_title').html(html_title);
+
+        //     $('#title').text(data.title);
+        //     var image = '<img src ="./image/'+ data.image +'">' 
+        //     $('#image').html(image);
+        //     $('#desc').text(data.desc);
+        //     // var l = data.ProductSetting.length;
+        //     $('#version').text(data.ProductSetting[0].version);
+        //     $('#platform').text(data.ProductSetting[0].platform);
+        //     $('#deliverytype').text(data.ProductSetting[0].DeliveryType);
+
+        // }); -->

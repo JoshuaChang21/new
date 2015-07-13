@@ -1,0 +1,339 @@
+@media (min-width: 250px)
+{	
+	/*button*/
+	.storebtn
+	{
+		width:100%;
+		margin:10px auto;
+	}
+	.second > div > .btn
+	{	width:45%;
+		margin: 10px 1.25%;
+	}
+	.third > div > .btn 
+	{
+		width:45%;
+		margin: 10px 1.25%;
+	}
+	.product_bundle > .btn{
+		width:100%;
+		margin-top:3%;
+	}
+	/*some adjustment*/
+	.col-xs-7 {
+		padding-left:5px;
+	}
+	.col-xs-5 {
+		padding-right: 5px;
+	}
+
+	/*font */
+	.product_bundle > h2{
+		padding-bottom: 2%;
+		border-bottom: 1px black solid;
+		text-align: center;
+	}
+
+	.product_bundle > div > div > p{
+		font-size: 13px;
+	}	
+
+	/*down image*/
+	.bundle_pic > div > a > img{
+		margin-top: 5%;
+	}
+}
+
+@media (min-width: 600px)
+{
+	/*button*/
+	.storebtn
+	{
+		width:100%;
+		margin:10px auto;
+	}
+	.second > div > .btn
+	{	width:45%;
+		margin: 10px 1.25%;
+	}
+
+	.third > div > .btn 
+	{
+		width:45%;
+		margin: 10px 1.25%;
+	}
+	.product_bundle > .btn{
+		width:100%;
+		margin-top:3%;
+	}
+
+	/*fonnt */
+	.product_bundle > div > div > p{
+		font-size: 13px;
+	}	
+	.product_bundle > h2{
+		padding-bottom: 2%;
+		border-bottom: 1px black solid;
+		text-align: center;
+	}
+	/*some adjustment*/
+	.col-xs-7 {
+		padding-left:5px;
+	}
+	.col-xs-5 {
+		padding-right: 5px;
+	}
+
+	/*down img*/
+	.bundle_pic > div > a > img{
+		margin-top: 5%;
+		margin-left: 10%;
+	}
+}
+
+@media (min-width:768px) and (max-width:992px)
+{	
+	/*button */
+	.storebtn
+	{
+		width:115;
+		margin-right:10px;
+		font-size:15px;
+	}
+
+	.second > div > .btn
+	{	
+		width:115;
+		margin:0px 10px 0px 0px;
+	}
+
+	.third > div > .btn
+	{	
+		width:115;
+		margin:0px 10px 0px 0px;
+	}
+	.product_bundle > .btn{
+		width:115;
+		position: absolute;
+		left:275px;
+	}
+	/*font */
+	.product_bundle > h2{
+		padding-bottom: 2%;
+		border-bottom: 1px black solid;
+		text-align: left;
+	}
+
+	/*down img*/
+	.bundle_pic > div > a > img {
+		margin-left: 5%;
+	}
+
+}
+
+@media (min-width: 992px) 
+{	
+	/*button */
+	.storebtn
+	{
+		width:120;
+		margin-right:10px;
+		font-size:15px;
+	}
+
+	.second > div > .btn
+	{	
+		width:120;
+		margin:0px 10px 0px 0px;
+
+	}
+	.third > div > .btn
+	{	
+		width:120;
+		margin:0px 10px 0px 0px;
+	}
+	.product_bundle > .btn{
+		width:25%;
+		position: absolute;
+		left:275px;
+	}
+
+	/*font */
+	.product_bundle > h2{
+		padding-bottom: 2%;
+		border-bottom: 1px black solid;
+		text-align: left;
+	}
+
+	/*some adjustment */
+	.bundle_pic {
+		padding-right: 3%;
+	}
+
+	.col-lg-5 {
+		padding-left: 0px;
+	}
+
+	/*img */
+	.bundle_pic > div > a > img{
+		margin-left: 5%;
+	}
+}
+
+@media (min-width:1300px)
+{	
+	/*button */
+	.storebtn
+	{
+		width:160;
+		margin-right:5px;
+	}
+	.second > div > .btn
+	{	
+		width:160;
+		margin:0px 5px 0px 0px;
+	}
+
+	.third > div > .btn
+	{	
+		width:160;
+		margin:0px 5px 0px 0px;
+	}
+	.product_bundle > .btn{
+		width:25%;
+		position: absolute;
+		left:300px;
+	}
+
+	/*font */
+	.product_bundle > h2{
+		padding-bottom: 2%;
+		border-bottom: 1px black solid;
+		text-align: left;
+	}
+
+	/*some adjustment */
+	.bundle_pic {
+		padding-right: 3%;
+	}
+
+	/*down img */
+	.bundle_pic > div > a > img {
+		margin-left: 5%;
+	}
+}
+
+@media (min-width: 1550px) 
+{	
+	/*button */
+	.storebtn
+	{
+		width: 180;
+		margin-right:10px;
+	}
+
+	.second > div > .btn
+	{	
+		width:180;
+		margin:0px 10px 0px 0px;
+	}
+
+	.third > div > .btn
+	{	
+		width:180;
+		margin:0px 10px 0px 0px;
+	}
+	.product_bundle > .btn{
+		width:180;
+		position: absolute;
+		left:385px;
+	}
+
+	/*font*/
+	.product_bundle > h2{
+		padding-bottom: 2%;
+		border-bottom: 1px black solid;
+		text-align: left;
+	}
+
+	/*img */
+	.bundle_pic > div > a > img {
+		margin-left:11%;
+	}
+	.bundle_pic > div > a > img{
+		width:80%;
+	}
+}
+
+
+
+.first, .second > div, .third > div{
+	margin-left: 1px;
+}
+
+.first> .btn{
+	border-width: 2px;
+	background-color: white;
+}
+
+.first >.btn:hover{
+	outline:none;
+	background-color:transparent;
+	border-color: #ccc;
+}
+
+.second >div > .btn:hover{
+	outline:none;
+	background-color:transparent;
+	border-color: #ccc;
+}
+
+.second > div  > .btn{
+	border-color: #ccc;
+	border-width: 2px;
+	background-color: white;
+}
+
+.third > div> .btn{
+	border-color: #ccc;
+	border-width: 2px;
+	background-color: white;
+}
+
+.third > div> .btn:hover{
+	outline:none;
+	background-color:transparent;
+	border-color: #ccc;
+}
+
+
+.product_bundle > div > div > ul{
+	padding-left: 15px;
+}
+
+.product_bundle > div > div > ul > li{
+	font-size:13px;
+}
+
+.bundle{
+	margin-top: 8%;
+}
+
+
+.product_bundle > span{
+	font-size:15px;
+	font-family: sans-serif;
+	margin-right: 5px;
+}
+
+.product_bundle{
+	margin-bottom: 10%;
+	margin-top: 3%;
+}
+hr {
+	height:2px;
+}
+
+.body1 > .container-fluid{
+	margin-top:3%;
+}

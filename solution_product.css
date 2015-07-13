@@ -1,0 +1,363 @@
+.body1 > .container-fluid {
+	margin-top:3%;
+}
+
+@media (min-width: 250px)
+{
+	.storebtn
+	{
+		width:100%;
+		margin:10px auto;
+	}
+
+	.product > h2 , .product2 > h2{
+		text-align: center;
+		font-size: 35px;
+	}
+
+	.banner > img{
+		width:90%;	;
+		margin:25px 5%;
+	}
+
+	.ensure_text {
+		background: #DDDDDD;
+		min-height:300px;
+	}
+
+	.ensure_text > div > p{
+		font-size: 30px;
+		padding: 5% 2%;
+		text-align: center;
+	}
+
+	.ensure_text > p {
+		font-size:12px;
+		padding: 0px 25px;
+	}
+
+	.ensure_text > .btn {
+		width:90%;
+		height:50px;
+		margin: 5% 5%;
+		text-align: center;
+	}
+}
+
+@media (min-width: 380px)
+{
+	.storebtn
+	{
+		width:100%;
+		margin:10px auto;
+	}
+
+	.product > h2 , .product2 > h2{
+		text-align: center;
+		font-size: 35px;
+	}
+
+	.banner > img{
+		width:90%;	;
+		margin:25px 5%;
+	}
+
+	.ensure_text {
+		background: #DDDDDD;
+		min-height:300px;
+	}
+
+	.ensure_text > div > p{
+		font-size: 30px;
+		padding: 3% 5%;
+		text-align: center;
+	}
+
+	.ensure_text > p {
+		font-size:12px;
+		padding: 0px 25px;
+	}
+
+	.ensure_text > .btn {
+		width:90%;
+		height:50px;
+		margin: 5% 5%;
+		text-align: center;
+	}
+}
+
+@media (min-width: 550px)
+{
+	.storebtn
+	{
+		width:100%;
+		margin:10px auto;
+	}
+
+	.product > h2 , .product2 > h2{
+		text-align: center;
+		font-size: 35px;
+	}
+
+	.banner > img{
+		width:90%;	;
+		margin:25px 5%;
+	}
+
+
+	.ensure_text {
+		background: #DDDDDD;
+		min-height:300px;
+	}
+
+	.ensure_text > div > p{
+		font-size: 30px;
+		padding: 3% 5%;
+		text-align: center;
+	}
+
+	.ensure_text > p {
+		font-size:12px;
+		padding: 0px 5%;
+	}
+
+	.ensure_text > .btn {
+		width:90%;
+		height:50px;
+		margin: 5% 5%;
+		text-align: center;
+	}
+}
+
+@media (min-width:700px) and (max-width:767px)
+{
+	.storebtn
+	{
+		width:100%;
+		margin:10px auto;
+	}
+
+	.product > h2 , .product2 > h2{
+		text-align: center;
+		font-size: 35px;
+	}
+
+	.banner > img{
+		width:90%;	;
+		margin:25px 5%;
+	}
+
+
+	.ensure_text {
+		background: #DDDDDD;
+		min-height:300px;
+	}
+
+	.ensure_text > div > p{
+		font-size: 35px;
+		padding: 50px 0px 50px 50px;
+		text-align: left;
+	}
+
+	.ensure_text > p {
+		font-size:15px;
+		padding: 0px 50px 50px 50px;
+	}
+
+	.ensure_text > .btn {
+		width:250px;
+		height:50px;
+		margin: 10px 10% 50px 30%;
+		text-align: center;
+	}
+
+}
+
+@media (min-width:768px) and (max-width:992px)
+{
+	.storebtn
+	{
+		width:115;
+		margin-right:10px;
+		font-size:15px;
+	}
+	.banner > img{
+		width:90%;
+		height:55%	;
+		margin:20px 15% 40px 3%;
+	}
+
+	.ensure_text {
+		background: #DDDDDD;
+		min-height:300px;
+	}
+
+	.ensure_text > div > p{
+		font-size: 40px;
+		padding: 50px 0px 50px 50px;
+		text-align: left;
+	}
+
+	.ensure_text > p {
+		font-size:15px;
+		padding: 0px 50px 50px 50px;
+	}
+
+	.ensure_text > .btn {
+		width:250px;
+		height:50px;
+		margin: 10px 10% 50px 35%;
+		text-align: center;
+	}
+
+}
+
+@media (min-width: 992px) 
+{
+	.storebtn
+	{
+		width:120;
+		margin-right:10px;
+		font-size:15px;
+	}
+	.banner > img{
+		width:90%;
+		height:65%	;
+		margin:20px 15% 40px 3%;
+	}
+
+	.ensure_text {
+		background: #DDDDDD;
+		min-height:300px;
+	}
+
+	.ensure_text > div > p{
+		font-size: 45px;
+		padding: 50px 150px 50px 50px;
+		text-align: left;
+	}
+
+	.ensure_text > p {
+		font-size:15px;
+		padding: 0px 100px 50px 50px;
+	}
+
+	.ensure_text > .btn {
+		width:250px;
+		height:50px;
+		margin: 10px 10% 50px 35%;
+		text-align: center;
+	}
+}
+
+@media (min-width:1200px)
+{	
+	.storebtn
+	{
+		width:160;
+		margin-right:5px;
+	}
+
+	.banner > img{
+		width:80%;
+		height:55%;
+		margin:20px 15% 40px 12%;
+	}
+
+	.ensure_text {
+		background: #DDDDDD;
+		min-height:300px;
+	}
+
+	.ensure_text > div > p{
+		font-size: 50px;
+		padding: 50px 150px 50px 180px;
+		text-align: left;
+	}	
+
+	.ensure_text > p {
+		font-size:15px;
+		padding: 0px 125px 50px 180px;
+	}
+
+	.ensure_text > .btn {
+		width:300px;
+		height:50px;
+		margin: 10px 10% 50px 38%;
+		text-align: center;
+	}
+}
+
+@media (min-width: 1550px) 
+{
+	.storebtn
+	{
+		width:180;
+		height:60;
+		font-size:20px;
+		margin-right:15px;
+	}
+
+	.banner > img{
+		width:65%;
+		height:50%	;
+		margin:20px 15% 40px 20%;
+	}
+
+	.ensure_text {
+		background: #DDDDDD;
+		min-height:300px;
+	}
+
+	.ensure_text > div > p{
+		font-size: 60px;
+		padding: 50px 150px 50px 380px;
+		text-align: left;
+	}
+
+	.ensure_text > p {
+		font-size:18px;
+		padding: 0px 225px 50px 380px;
+	}
+
+	.ensure_text > .btn {
+		width:400px;
+		height:50px;
+		margin: 10px 10% 50px 40%;
+		text-align: center;
+	}
+}
+
+.product> h2, .product2 > h2{
+	padding-bottom: 2%;
+	border-bottom: 1px black solid;
+}
+
+.product > div > div > ul, .product2 > div > div > ul{
+	padding-left: 15px;
+}
+
+.product > div > div > ul > li {
+	font-size:13px;
+	border-bottom: 1px black solid;
+}
+
+.product2 > div > div > ul> li {
+	font-size:13px;
+}
+
+.product, .product2{
+	margin-top: 20px;
+}
+
+.first> .btn{
+	border-width: 2px;
+	background-color: white;
+}
+
+.first >.btn:hover{
+	outline:none;
+	background-color:transparent;
+	border-color: #ccc;
+}
+

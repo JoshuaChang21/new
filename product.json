@@ -1,0 +1,85 @@
+{
+
+  "title": "iClone 6",
+
+  "image": "ProductImg_20130730144807.jpg",
+
+  "desc": "xxxxxx",
+
+  "ProductSetting": [
+
+    {
+
+      "version": "Pro",
+
+      "platform": "Win",
+
+      "DeliveryType": 1,
+
+      "BuyLink":"000001"
+
+    },
+
+    {
+
+      "version": "Pro",
+
+      "platform": "Mac",
+
+      "DeliveryType": 1,
+
+      "BuyLink":"000002"
+
+    },
+
+    {
+
+      "version": "Pro",
+
+      "platform": "Win",
+
+      "DeliveryType": 2,
+
+      "BuyLink":"000003"
+
+    },
+
+    {
+
+      "version": "Pro",
+
+      "platform": "Mac",
+
+      "DeliveryType": 2,
+
+      "BuyLink":"000004"
+
+    },
+
+    {
+
+      "version": "Std",
+
+      "platform": "Win",
+
+      "DeliveryType": 1,
+
+      "BuyLink":"000005"
+
+    },
+
+    {
+
+      "version": "Std",
+
+      "platform": "Mac",
+
+      "DeliveryType": 1,
+
+      "BuyLink":"000006"
+
+    }
+
+  ]
+
+}

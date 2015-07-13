@@ -1,0 +1,1257 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png"> -->
+    <title>Blank Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="store.css" rel="stylesheet">
+    <script type="text/javascript" src="./mustache.js-master/mustache.js"></script> 
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+     <!-- <script src="store.js"></script> -->
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    .thumbnail {
+   	 	border: 0 none;
+    	box-shadow: none;
+    	background-color:rgba(0,0,0,0);
+	}
+	</style>
+
+    <script>
+            $(document).ready(function(){
+                document.getElementById("snd").style.opacity = "0.3";
+                document.getElementById("third").style.opacity = "0.3";
+                document.getElementById("bundlesnd").style.opacity = "0.3";
+                document.getElementById("bundle2snd").style.opacity = "0.3";
+                document.getElementById("addonsnd").style.opacity = "0.3";
+                document.getElementById("addon2snd").style.opacity = "0.3";
+            });
+
+
+            function edition_choose(input){
+
+                for(var i=0;i< object_version.totalversion; i++){
+                    if(object_version.versiondata[i] == 'Std'){document.getElementById("edition_standard").style.borderColor = "#ccc";}
+                    if(object_version.versiondata[i] == 'Pro'){document.getElementById("edition_pro").style.borderColor = "#ccc";}
+                    if(object_version.versiondata[i] == 'Upgrade'){document.getElementById("edition_upgrade").style.borderColor = "#ccc"; }
+                }
+
+                switch (input) {
+                    case '1':
+                        getPlatform("Std", object);
+                        document.getElementById("edition_standard").style.outline = "none";
+                        document.getElementById("edition_standard").style.borderColor = "#DDAA00";
+                        document.getElementById("edition_standard").style.backgroundColor = "transparent";
+                        $('#edit').html("Standard /");
+                        $('#platform').html(""); 
+                        $('#delivery').html("");
+                        break;
+                    case '2':
+                        getPlatform("Pro", object);
+                        document.getElementById("edition_pro").style.outline = "none";
+                        document.getElementById("edition_pro").style.borderColor = "#DDAA00";
+                        document.getElementById("edition_pro").style.backgroundColor = "transparent";
+                        $('#edit').html("Pro /");
+                        $('#platform').html("");
+                        $('#delivery').html("");
+                        break;
+                    case '3':
+                        getPlatform("Upgrade", object);
+                        document.getElementById("edition_upgrade").style.outline = "none";
+                        document.getElementById("edition_upgrade").style.borderColor = "#DDAA00";
+                        document.getElementById("edition_upgrade").style.backgroundColor = "transparent";
+                        $('#edit').html("Upgrade /");
+                        $('#platform').html("");
+                        $('#delivery').html("");
+                        break;
+                    default:
+                        break;
+                }
+
+                
+
+                document.getElementById("snd").style.opacity = "1";
+                document.getElementById("third").style.opacity = "0.3";
+                if(object_plat.totalnumber== 1){
+                    $('.second').empty();
+                    var text_titlesnd = "<h3>2.Platform</h3>";
+                    var text_platform = "<h2>" + object_plat.platformdata[0] + "</h2>";
+                    $('.second').append(text_titlesnd);
+                    $('.second').append(text_platform);
+
+                    if(object.deliverycount > 1){
+                    document.getElementById("delivery_box").style.borderColor = "#ccc";
+                    document.getElementById("delivery_download").style.borderColor = "#ccc"; 
+                    }
+
+
+                    document.getElementById("third").style.opacity = "1";
+                    if(object_deli.totaldelinum == 1){
+                        $('.third').empty();
+                        var text_titlethird = "<h3>3.Delivery</h3>";
+                        if(object_deli.deliveryway[0] == 1){
+                        var text_delivery = "<h2>Box</h2>";
+                        }
+                        else if(object_deli.deliveryway[0] == 2){
+                        var text_delivery = "<h2>Download</h2>";
+                        }
+                        $('.third').append(text_titlethird);
+                        $('.third').append(text_delivery);
+
+                        if(object_plat.platformdata[0]=='Win'){
+                            $('#platform').html("Window /");
+                        }
+                        if(object_plat.platformdata[0]=='Mac'){
+                            $('#platform').html("Mac /");
+                        }
+
+                        if(object_deli.deliveryway[0]==1){
+                            $('#delivery').html("Box");
+                        }
+                        if(object_deli.deliveryway[0]==2){
+                            $('#delivery').html("Download");
+                        }
+
+                        document.getElementById("price").className = "btn btn-warning btn-lg price";
+                    }
+                    else {
+                        if(object.deliverycount > 1){
+                        document.getElementById("delivery_box").className = "btn btn-lg btn-default storebtn";
+                        document.getElementById("delivery_download").className = "btn btn-lg btn-default storebtn";
+                        document.getElementById("delivery_box").style.borderColor = "#ccc";
+                        document.getElementById("delivery_download").style.borderColor = "#ccc"; 
+                        }
+                        else if(object.deliverycount == 1){
+                            if(object.delivery[0] == 1){
+                                document.getElementById("delivery_box").className = "btn btn-lg btn-default storebtn";
+                                document.getElementById("delivery_box").style.borderColor = "#ccc";
+                            }
+                            else if(object.delivery[0] ==2){
+                                document.getElementById("delivery_download").className = "btn btn-lg btn-default storebtn";
+                                document.getElementById("delivery_download").style.borderColor = "#ccc"; 
+                            }
+                        }
+                    }
+                }
+
+                else {          
+                    if(object.platformcount > 1){
+                        document.getElementById("platform_window").className = "btn btn-lg btn-default storebtn";
+                        document.getElementById("platform_mac").className = "btn btn-lg btn-default storebtn";
+                        document.getElementById("platform_window").style.borderColor = "#ccc";
+                        document.getElementById("platform_mac").style.borderColor = "#ccc"; 
+                    }
+
+                    else if(object.platformcount == 1){
+                        if(object.platform[0] == 'Win'){
+                            document.getElementById("platform_window").className = "btn btn-lg btn-default storebtn";
+                            document.getElementById("platform_window").style.borderColor = "#ccc";
+                        }
+                        else if(object.platform[0] == 'Mac'){
+                            document.getElementById("platform_mac").className = "btn btn-lg btn-default storebtn";
+                            document.getElementById("platform_mac").style.borderColor = "#ccc"; 
+                        }
+                    }
+                    if(object.deliverycount > 1){
+                    document.getElementById("delivery_box").className = "btn btn-lg btn-default storebtn";
+                    document.getElementById("delivery_download").className = "btn btn-lg btn-default storebtn";
+                    document.getElementById("delivery_box").style.borderColor = "#ccc";
+                    document.getElementById("delivery_download").style.borderColor = "#ccc"; 
+                    }
+                    else if(object.deliverycount == 1){
+                        if(object.delivery[0] == 1){
+                            document.getElementById("delivery_box").className = "btn btn-lg btn-default storebtn";
+                            document.getElementById("delivery_box").style.borderColor = "#ccc";
+                        }
+                        else if(object.delivery[0] ==2){
+                            document.getElementById("delivery_download").className = "btn btn-lg btn-default storebtn";
+                            document.getElementById("delivery_download").style.borderColor = "#ccc"; 
+                        }
+                    }
+                }
+
+                if(object_deli.totaldelinum == 1){
+                        $('.third').empty();
+                        var text_titlethird = "<h3>3.Delivery</h3>";
+                        if(object_deli.deliveryway[0] == 1){
+                        var text_delivery = "<h2>Box</h2>";
+                        }
+                        else if(object_deli.deliveryway[0] == 2){
+                        var text_delivery = "<h2>Download</h2>";
+                        }
+                        $('.third').append(text_titlethird);
+                        $('.third').append(text_delivery);
+                }
+            } 
+
+
+            function platform_choose(input)
+            {
+                if(object.platformcount  > 1){
+                document.getElementById("platform_window").style.borderColor = "#ccc";
+                document.getElementById("platform_mac").style.borderColor = "#ccc"; 
+                }
+
+                else if(object.platformcount  == 1){
+                    if(object.platform[0]  == 'Win'){
+                        document.getElementById("platform_window").style.borderColor = "#ccc";
+                    }
+                    else if(object.platform[0]  == 'Mac'){
+                        document.getElementById("platform_mac").style.borderColor = "#ccc"; 
+                    }
+                }
+
+                switch (input) {
+                    case '2-1':
+                        getDelivery("Win", object);
+                        document.getElementById("platform_window").style.outline = "none";
+                        document.getElementById("platform_window").style.borderColor = "#DDAA00";
+                        $('#platform').html("Window /");
+                        $('#delivery').html("");
+                        break;
+                    case '2-2':
+                        getDelivery("Mac", object);
+                        document.getElementById("platform_mac").style.outline = "none";
+                        document.getElementById("platform_mac").style.borderColor = "#DDAA00";
+                        $('#platform').html("Mac /");
+                        $('#delivery').html("");
+                        break;
+                    default:
+                        break;
+                }
+                document.getElementById("third").style.opacity = "1";
+                if(object_deli.totaldelinum == 1){
+                        $('.third').empty();
+                        var text_titlethird = "<h3>3.Delivery</h3>";
+                        if(object_deli.deliveryway[0] == 1){
+                        var text_delivery = "<h2>Box</h2>";
+                        }
+                        else if(object_deli.deliveryway[0] == 2){
+                        var text_delivery = "<h2>Download</h2>";
+                        }
+                        $('.third').append(text_titlethird);
+                        $('.third').append(text_delivery);
+                        if(object_deli.deliveryway[0]==1){
+                            $('#delivery').html("Box");
+                        }
+                        if(object_deli.deliveryway[0]==2){
+                            $('#delivery').html("Download");
+                        }
+                        document.getElementById("price").className = "btn btn-warning btn-lg price";
+                }
+                else {
+                if(object.deliverycount > 1){
+                document.getElementById("delivery_box").className = "btn btn-lg btn-default storebtn";
+                document.getElementById("delivery_download").className = "btn btn-lg btn-default storebtn";
+                document.getElementById("delivery_box").style.borderColor = "#ccc";
+                document.getElementById("delivery_download").style.borderColor = "#ccc"; 
+                }
+                else if(object.deliverycount == 1){
+                    if(object.delivery[0] == 1){
+                        document.getElementById("delivery_box").className = "btn btn-lg btn-default storebtn";
+                        document.getElementById("delivery_box").style.borderColor = "#ccc";
+                    }
+                    else if(object.delivery[0] ==2){
+                        document.getElementById("delivery_download").className = "btn btn-lg btn-default storebtn";
+                        document.getElementById("delivery_download").style.borderColor = "#ccc"; 
+                    }
+                }
+                }
+            }
+
+            function delivery_choose(input){
+                if(object.deliverycount > 1){
+                document.getElementById("delivery_box").style.borderColor = "#ccc";
+                document.getElementById("delivery_download").style.borderColor = "#ccc"; 
+                }
+                else if(object.deliverycount == 1){
+                    if(object.delivery[0] == 1){
+                        document.getElementById("delivery_box").style.borderColor = "#ccc";
+                    }
+                    else if(object.delivery[0] ==2){
+                        document.getElementById("delivery_download").style.borderColor = "#ccc"; 
+                    }
+                }
+
+                document.getElementById("price").className = "btn btn-warning btn-lg price";
+                switch(input){
+                    case '3-1':
+                        getBuyLink("1",object);
+                        document.getElementById("delivery_box").style.outline = "none";
+                        document.getElementById("delivery_box").style.borderColor = "#DDAA00";
+                        $('#delivery').html("Box");
+                        break;
+                    case '3-2':
+                        getBuyLink("2",object);
+                        document.getElementById("delivery_download").style.outline = "none";
+                        document.getElementById("delivery_download").style.borderColor = "#DDAA00";
+                        $('#delivery').html("Download");
+                        break;
+                    default:
+                        break;
+                }   
+            }
+
+            function bundleedition_choose(input){
+                document.getElementById("bundleedition_now").style.borderColor = "#ccc";
+                document.getElementById("bundleedition_upgrade").style.borderColor = "#ccc"; 
+
+                switch (input) {
+                    case '1':
+                        document.getElementById("bundleedition_now").style.outline = "none";
+                        document.getElementById("bundleedition_now").style.borderColor = "#DDAA00";
+                        document.getElementById("bundleedition_now").style.backgroundColor = "transparent";
+                        // $('#edit').html("Standard /");  
+                        break;
+                    case '2':
+                        document.getElementById("bundleedition_upgrade").style.outline = "none";
+                        document.getElementById("bundleedition_upgrade").style.borderColor = "#DDAA00";
+                        document.getElementById("bundleedition_upgrade").style.backgroundColor = "transparent";
+                        // $('#edit').html("Pro /");
+                        break;
+                    default:
+                        break;
+                }
+                document.getElementById("bundlesnd").style.opacity = "1";
+                document.getElementById("bundleplatform_window").className = "btn btn-lg btn-default storebtn";
+                document.getElementById("bundleplatform_mac").className = "btn btn-lg btn-default storebtn";
+            }
+
+            function bundleplatform_choose(input)
+            {
+                document.getElementById("bundleplatform_window").style.borderColor = "#ccc";
+                document.getElementById("bundleplatform_mac").style.borderColor = "#ccc"; 
+                document.getElementById("bundle_price").className = "btn btn-warning btn-lg price";
+                switch (input) {
+                    case '2-1':
+                        document.getElementById("bundleplatform_window").style.outline = "none";
+                        document.getElementById("bundleplatform_window").style.borderColor = "#DDAA00";
+                        // $('#platform').html("Window /");
+                        break;
+                    case '2-2':
+                        document.getElementById("bundleplatform_mac").style.outline = "none";
+                        document.getElementById("bundleplatform_mac").style.borderColor = "#DDAA00";
+                        // $('#platform').html("Mac /");
+                        break;
+                    default:
+                        break;
+                }
+            } 
+
+            function bundleedition2_choose(input){
+                document.getElementById("bundleedition2_now").style.borderColor = "#ccc";
+                document.getElementById("bundleedition2_upgrade").style.borderColor = "#ccc"; 
+
+                switch (input) {
+                    case '1':
+                        document.getElementById("bundleedition2_now").style.outline = "none";
+                        document.getElementById("bundleedition2_now").style.borderColor = "#DDAA00";
+                        document.getElementById("bundleedition2_now").style.backgroundColor = "transparent";
+                        // $('#edit').html("Standard /");  
+                        break;
+                    case '2':
+                        document.getElementById("bundleedition2_upgrade").style.outline = "none";
+                        document.getElementById("bundleedition2_upgrade").style.borderColor = "#DDAA00";
+                        document.getElementById("bundleedition2_upgrade").style.backgroundColor = "transparent";
+                        // $('#edit').html("Pro /");
+                        break;
+                    default:
+                        break;
+                }
+                document.getElementById("bundle2snd").style.opacity = "1";
+                document.getElementById("bundleplatform2_window").className = "btn btn-lg btn-default storebtn";
+                document.getElementById("bundleplatform2_mac").className = "btn btn-lg btn-default storebtn";
+            }
+
+            function bundleplatform2_choose(input){
+                document.getElementById("bundleplatform2_window").style.borderColor = "#ccc";
+                document.getElementById("bundleplatform2_mac").style.borderColor = "#ccc"; 
+                document.getElementById("bundle2_price").className = "btn btn-warning btn-lg price";
+                switch (input) {
+                    case '2-1':
+                        document.getElementById("bundleplatform2_window").style.outline = "none";
+                        document.getElementById("bundleplatform2_window").style.borderColor = "#DDAA00";
+                        // $('#platform').html("Window /");
+                        break;
+                    case '2-2':
+                        document.getElementById("bundleplatform2_mac").style.outline = "none";
+                        document.getElementById("bundleplatform2_mac").style.borderColor = "#DDAA00";
+                        // $('#platform').html("Mac /");
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            function addonedition_choose(input){
+                document.getElementById("addonedition_standard").style.borderColor = "#ccc";
+                document.getElementById("addonedition_pro").style.borderColor = "#ccc"; 
+                document.getElementById("addonedition_pipeline").style.borderColor = "#ccc"; 
+
+                switch (input) {
+                    case '1':
+                        document.getElementById("addonedition_standard").style.outline = "none";
+                        document.getElementById("addonedition_standard").style.borderColor = "#DDAA00";
+                        document.getElementById("addonedition_standard").style.backgroundColor = "transparent";
+                        // $('#edit').html("Standard /");  
+                        break;
+                    case '2':
+                        document.getElementById("addonedition_pro").style.outline = "none";
+                        document.getElementById("addonedition_pro").style.borderColor = "#DDAA00";
+                        document.getElementById("addonedition_pro").style.backgroundColor = "transparent";
+                        // $('#edit').html("Pro /");
+                        break;
+                    case '3':
+                        document.getElementById("addonedition_pipeline").style.outline = "none";
+                        document.getElementById("addonedition_pipeline").style.borderColor = "#DDAA00";
+                        document.getElementById("addonedition_pipeline").style.backgroundColor = "transparent";
+                        // $('#edit').html("Pro /");
+                        break;
+                    default:
+                        break;
+                }
+                document.getElementById("addonsnd").style.opacity = "1";
+                document.getElementById("addonplatform_window").className = "btn btn-lg btn-default storebtn";
+                document.getElementById("addonplatform_mac").className = "btn btn-lg btn-default storebtn";
+            }
+
+            function addonplatform_choose(input){
+                document.getElementById("addonplatform_window").style.borderColor = "#ccc";
+                document.getElementById("addonplatform_mac").style.borderColor = "#ccc"; 
+                document.getElementById("addon_price").className = "btn btn-warning btn-lg price";
+                switch (input) {
+                    case '2-1':
+                        document.getElementById("addonplatform_window").style.outline = "none";
+                        document.getElementById("addonplatform_window").style.borderColor = "#DDAA00";
+                        // $('#platform').html("Window /");
+                        break;
+                    case '2-2':
+                        document.getElementById("addonplatform_mac").style.outline = "none";
+                        document.getElementById("addonplatform_mac").style.borderColor = "#DDAA00";
+                        // $('#platform').html("Mac /");
+                        break;
+                    default:
+                        break;
+                }
+            } 
+
+            function addonedition2_choose(input){
+                document.getElementById("addonedition2_now").style.borderColor = "#ccc";
+                document.getElementById("addonedition2_upgrade").style.borderColor = "#ccc"; 
+
+                switch (input) {
+                    case '1':
+                        document.getElementById("addonedition2_now").style.outline = "none";
+                        document.getElementById("addonedition2_now").style.borderColor = "#DDAA00";
+                        document.getElementById("addonedition2_now").style.backgroundColor = "transparent";
+                        // $('#edit').html("Standard /");  
+                        break;
+                    case '2':
+                        document.getElementById("addonedition2_upgrade").style.outline = "none";
+                        document.getElementById("addonedition2_upgrade").style.borderColor = "#DDAA00";
+                        document.getElementById("addonedition2_upgrade").style.backgroundColor = "transparent";
+                        // $('#edit').html("Pro /");
+                        break;
+                    default:
+                        break;
+                }
+                document.getElementById("addon2snd").style.opacity = "1";
+                document.getElementById("addonplatform2_window").className = "btn btn-lg btn-default storebtn";
+                document.getElementById("addonplatform2_mac").className = "btn btn-lg btn-default storebtn";
+            }
+
+            function addonplatform2_choose(input){
+                document.getElementById("addonplatform2_window").style.borderColor = "#ccc";
+                document.getElementById("addonplatform2_mac").style.borderColor = "#ccc"; 
+                document.getElementById("addon2_price").className = "btn btn-warning btn-lg price";
+                switch (input) {
+                    case '2-1':
+                        document.getElementById("addonplatform2_window").style.outline = "none";
+                        document.getElementById("addonplatform2_window").style.borderColor = "#DDAA00";
+                        // $('#platform').html("Window /");
+                        break;
+                    case '2-2':
+                        document.getElementById("addonplatform2_mac").style.outline = "none";
+                        document.getElementById("addonplatform2_mac").style.borderColor = "#DDAA00";
+                        // $('#platform').html("Mac /");
+                        break;
+                    default:
+                        break;
+                }
+            } 
+
+    </script>
+    
+    <script>
+    var parser = {};
+    var object = new product_info();
+    var object_version;
+    var object_plat;
+    var object_deli;
+    var my_object;
+    function load(){
+
+        $.ajax ({
+            type: "POST",
+            url:"http://10.10.10.9/store/Function/AjaxStoreInfo.aspx",
+            data:'cmd=StorInfo',
+            dataType:"json",
+            success:function(data){
+                alert(data);
+            },
+            error:function(error){
+                alert(error.message);
+            }
+        });
+
+
+        // $.ajax ({
+        //     url:"product.json",
+        //     dataType:"text", 
+        //     success: function(data){
+        //         parser = $.parseJSON(data);
+        //         //version
+        //         object_version = new Version();
+        //         getVersion(object_version);
+
+        //         //platform
+        //         object_plat = new platformObject();
+        //         getTotalPlatform(object_plat);
+
+
+        //         //delivery
+        //         object_deli = new deliverywayObject();
+        //         getTotalDelivery(object_deli);
+
+
+        //         //Main_product
+        //         my_object = new product();
+        //         getTitle(my_object);
+        //         getImageUrl(my_object);
+        //         getDescription(my_object);
+
+        //         var version_count = object_version.totalversion;
+        //         if(version_count > 1){
+        //             var text_title = "<h1>" + my_object.title + "</h1>";
+        //             var text_count = "<h3>1.Choose an edition: </h3>";
+        //             $('.first').append(text_title);
+        //             $('.first').append(text_count);
+        //         }
+        //         for(var i=0;i<version_count;i++){
+        //             if(object_version.versiondata[i]== 'Std'){
+        //             var btntextstd = '<button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="edition_choose(\'1\')" id="edition_standard">Standard <br><s>$149</s>&nbsp;&nbsp;$99</button>';
+        //             $('.first').append(btntextstd);
+        //             i=version_count;
+        //             }
+        //          }
+
+        //          for(var i=0;i<version_count;i++){
+        //             if(object_version.versiondata[i]== 'Pro'){
+        //             var btntextpro = '<button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="edition_choose(\'2\')" id="edition_pro">Pro <br><s>$249</s>&nbsp;&nbsp;$199</button>';
+        //             $('.first').append(btntextpro);
+        //             i=version_count;
+        //             }
+        //          }
+
+        //          for(var i=0;i<version_count;i++){
+        //             if(object_version.versiondata[i]== 'Upgrade'){
+        //             var btntextupg = '<button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="edition_choose(\'3\')" id="edition_upgrade">Upgrade</button>';
+        //             $('.first').append(btntextupg);
+        //             i=version_count;
+        //             }
+        //          }
+
+        //          if(object_plat.totalnumber== 1){
+        //             var text_titlesnd = "<h3>2.Platform</h3>";
+        //             var text_platform = "<h2>" + object_plat.platformdata[0] + "</h2>";
+        //             $('.second').append(text_titlesnd);
+        //             $('.second').append(text_platform);
+        //          }
+        //          else if(object_plat.totalnumber >1 ){
+        //             var text_titlesnd = "<h3>2.Choose a Platform</h3>";
+        //             var btntextplat = '<div class="row"><button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="platform_choose(\'2-1\')" id="platform_window">Window</button> <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="platform_choose(\'2-2\')" id="platform_mac">Mac</button></div>';
+        //             $('.second').append(text_titlesnd);
+        //             $('.second').append(btntextplat);
+        //          }
+
+        //          if(object_deli.totaldelinum == 1){
+        //             var text_titlethird = "<h3>3.Delivery</h3>";
+        //             if(object_deli.deliveryway[0] == 1){
+        //             var text_delivery = "<h2>Box</h2>";
+        //             }
+        //             else if(object_deli.deliveryway[0] == 2){
+        //             var text_delivery = "<h2>Download</h2>";
+        //             }
+        //             $('.third').append(text_titlethird);
+        //             $('.third').append(text_delivery);
+        //          }
+
+        //          else if(object_deli.totaldelinum > 1){
+        //             var text_titlethird = "<h3>3.Choose Delivery</h3>";
+        //             var btntextdeli = '<div class="row"><button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="delivery_choose(\'3-1\')" id="delivery_box">Box</button> <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="delivery_choose(\'3-2\')" id="delivery_download" >Download</button></div>';
+        //             $('.third').append(text_titlethird);
+        //             $('.third').append(btntextdeli);
+        //          }
+
+        //         var textshow = '<hr></hr><span>'+my_object.title+'</span><span id="edit"></span><span id="platform"></span><span id="delivery"></span><button type="button" class="btn btn-warning btn-lg disabled price" id="price">Buy  $99</button>';
+        //         $('.show').append(textshow);
+        //     }
+        // });
+    }
+    function Version(){
+        this.totalversion = 0;
+        this.versiondata = [];
+    }
+    function getVersion(obj){
+        var product_length = parser.ProductSetting.length;
+        var ver_std=0;
+        var ver_Pro=0;
+        var ver_upgrade=0;
+        var j=0;
+        for(var i=0;i<product_length;i++){
+            if(parser.ProductSetting[i].version == "Pro"){
+                ver_Pro ++;
+            }
+            if(parser.ProductSetting[i].version == "Std"){
+                ver_std ++;
+            }
+            if(parser.ProductSetting[i].version == "Upgrade"){
+                ver_upgrade++;
+            }
+        }
+        if(ver_Pro > 0){
+            obj.totalversion++;
+            obj.versiondata[j] = "Pro";
+            j++;
+        }
+
+        if(ver_std > 0){
+            obj.totalversion++;
+            obj.versiondata[j] = "Std";
+            j++;
+        }
+        if(ver_upgrade> 0){
+            obj.totalversion++;
+            obj.versiondata[j] = "Upgrade";
+            j++;
+        }
+
+    }
+  
+    function platformObject(){
+        this.totalnumber = 0;
+        this.platformdata = [];
+    }
+    function getTotalPlatform(obj){
+        var product_length = parser.ProductSetting.length;
+        var count_win = 0;
+        var count_mac = 0;
+
+        for(var i=0;i<product_length;i++){
+            if(parser.ProductSetting[i].platform == "Win"){
+                count_win ++;
+            }
+            if(parser.ProductSetting[i].platform == "Mac"){
+                count_mac ++;
+            }
+        }
+        if(count_win >0 && count_mac > 0){
+            obj.totalnumber = 2;
+            obj.platformdata=["Win", "Mac"];
+        }
+        else if(count_win >0 && count_mac == 0){
+            obj.totalnumber = 1;
+            obj.platformdata= ['Win'];
+        }
+        else if(count_win == 0 && count_mac > 0){
+            obj.totalnumber=1;
+            obj.platformdata= ['Mac'];
+        }
+        else {
+             obj.totalnumber=0;
+             obj.platformdata=[];
+        }
+    }
+
+
+    function deliverywayObject(){
+        this.totaldelinum= 0;
+        this.deliveryway = [];
+    }
+    function getTotalDelivery(obj){
+        var product_length = parser.ProductSetting.length;
+        var deli_box = 0;
+        var deli_download = 0;
+        
+        for(var i=0;i<product_length;i++){
+            if(parser.ProductSetting[i].DeliveryType == 1){
+                deli_box ++;
+            }
+            if(parser.ProductSetting[i].DeliveryType == 2){
+                deli_download ++;
+            }
+        }
+
+        if(deli_box >0 && deli_download > 0){
+            obj.totaldelinum = 2;
+            obj.deliveryway=["1", "2"];
+        }
+        else if(deli_box >0 && deli_download == 0){
+            obj.totaldelinum = 1;
+            obj.deliveryway= ['1'];
+        }
+        else if(deli_box == 0 && deli_download > 0){
+            obj.totaldelinum=1;
+            obj.deliveryway= ['2'];
+        }
+        else {
+             obj.totaldelinum=0;
+             obj.deliveryway=[];
+        }
+    }
+
+
+    function product(){
+        this.title = {};
+        this.imageurl = {};
+        this.description = {};
+    }
+    function getTitle(obj){obj.title = parser.title;}
+    function getImageUrl(obj){obj.imageurl = parser.image;}
+    function getDescription(obj){obj.description = parser.desc;}
+    function product_info(){
+        this.version= [];
+        this.versioncount = 0;
+        this.platform=[];
+        this.platformcount = 0;
+        this.delivery=[];
+        this.deliverycount = 0;
+        this.urllink = [];
+    }
+
+    function getPlatform(version, obj){
+        var j=0;
+        obj.version = version;
+        obj.platform = [];
+        obj.platformcount =0;
+        var product_length = parser.ProductSetting.length;
+        for(var i=0;i<product_length;i++){
+            var same = false;
+            if(version == parser.ProductSetting[i].version){
+                if(j != 0){
+                    for(var k=0;k<j;k++){
+                        if(parser.ProductSetting[i].platform == obj.platform[k]){
+                            same = true;
+                        }
+                    }
+                    if(same == false){
+                        obj.platform[j] = parser.ProductSetting[i].platform;
+                        j++;
+                    }
+                }
+                else {
+                    obj.platform[j] = parser.ProductSetting[i].platform;
+                    j++;
+                }
+            }
+        }
+        obj.platformcount = j;
+
+        if(j==1) {
+            $('.second').empty();
+
+            var text_titlesnd = "<h3>2.Choose a Platform</h3>";
+            if(obj.platform[0] == 'Win'){
+                var btntextplat = '<div class="row"><button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="platform_choose(\'2-1\')" id="platform_window">Window</button></div>';
+            }
+
+            else if(obj.platform[0] == 'Mac'){
+                var btntextplat = '<div class="row"><button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="platform_choose(\'2-2\')" id="platform_mac">Mac</button></div>';
+            }
+
+            $('.second').append(text_titlesnd);
+            $('.second').append(btntextplat);
+        }
+        else if(j==2){
+            $('.second').empty();
+            var text_titlesnd = "<h3>2.Choose a Platform</h3>";
+            var btntextplat = '<div class="row"><button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="platform_choose(\'2-1\')" id="platform_window">Window</button> <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="platform_choose(\'2-2\')" id="platform_mac">Mac</button></div>';
+            $('.second').append(text_titlesnd);
+            $('.second').append(btntextplat);
+        }
+
+        $('.third').empty();
+        var text_titlethird = "<h3>3.Choose Delivery</h3>";
+        var btntextdeli = '<div class="row"><button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="delivery_choose(\'3-1\')" id="delivery_box">Box</button> <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="delivery_choose(\'3-2\')" id="delivery_download" >Download</button></div>';
+        $('.third').append(text_titlethird);
+        $('.third').append(btntextdeli);
+    }
+
+    function getDelivery(platform , obj){
+
+        obj.platform = [];
+        obj.delivery = [];
+        obj.deliverycount = 0;
+        var j=0;
+        var product_length = parser.ProductSetting.length;
+        
+        for(var i=0;i<product_length;i++){
+            var same = false;
+            if(obj.version == parser.ProductSetting[i].version){
+            obj.platform = platform;
+                if(platform == parser.ProductSetting[i].platform){
+                    if(j != 0){
+                        for(var k=0;k<j;k++){
+                            if(parser.ProductSetting[i].DeliveryType == obj.delivery[k]){
+                                same = true;
+                            }
+                        }
+
+                        if(same == false){
+                            obj.delivery[j] = parser.ProductSetting[i].DeliveryType;
+                            j++;
+                        }
+                    }
+                    else {
+                        obj.delivery[j] = parser.ProductSetting[i].DeliveryType;
+                        j++;
+                    }
+                }
+            }
+        }
+
+        obj.deliverycount = j;
+        if(j==1){
+            $('.third').empty();
+            var text_titlethird = "<h3>3.Choose Delivery</h3>";
+            if(obj.delivery[0]==1){
+            var btntextdeli = '<div class="row"><button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="delivery_choose(\'3-1\')" id="delivery_box">Box</button></div>';
+            }
+            else if(obj.delivery[0]==2){
+            var btntextdeli = '<div class="row"><button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="delivery_choose(\'3-2\')" id="delivery_download" >Download</button></div>';
+            }
+            $('.third').append(text_titlethird);
+            $('.third').append(btntextdeli);
+        }
+
+        else if(j==2){
+            $('.third').empty();
+            var text_titlethird = "<h3>3.Choose Delivery</h3>";
+            var btntextdeli = '<div class="row"><button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="delivery_choose(\'3-1\')" id="delivery_box">Box</button> <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="delivery_choose(\'3-2\')" id="delivery_download" >Download</button></div>';
+            $('.third').append(text_titlethird);
+            $('.third').append(btntextdeli);
+        }
+
+    }
+
+    function getBuyLink(delivery, obj){
+        obj.delivery=[];
+        obj.urllink = [];
+        var j=0;
+        var product_length = parser.ProductSetting.length;
+
+        for(var i=0;i<product_length;i++){       
+            if(obj.version == parser.ProductSetting[i].version){
+                if(obj.platform == parser.ProductSetting[i].platform){
+                    obj.delivery = delivery;
+                    if(delivery == parser.ProductSetting[i].DeliveryType){
+                        obj.urllink = parser.ProductSetting[i].BuyLink;
+                    }
+                }
+            }
+        }
+        console.log(obj.version,obj.platform, obj.delivery, obj.urllink);
+
+    }
+    </script>
+
+</head>
+<body onload="load()">
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <nav class="navbar navbar-default" role="navigation" style="margin-bottom:0px">
+        <div class="container-fluid" style="background-color:black">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span>  <span class="icon-bar"></span>  <span class="icon-bar"></span>  <span class="icon-bar"></span> 
+                </button> <a class="navbar-brand" href="#">Reallusion</a> 
+            </div>
+            <div class="navbar-collapse collapse in" id="bs-example-navbar-collapse-1" style="height: auto;">
+                <ul class="nav navbar-nav">
+                    <li ><a href="#">Products</a>
+                    </li>
+                    <li><a href="#">Support & Learning</a>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a> 
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a>
+                            </li>
+                            <li><a href="#">Another action</a>
+                            </li>
+                            <li><a href="#">Something else here</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>  
+    </nav>
+<div class="body1">
+    <div class="container" >
+        <div class="row" style="background-color:rgba(250,250,250,0.85);margin-top:10px;margin-bottom:10px">
+            <div class="col-md-1"></div>
+            <div class="nav-text">
+            <div class="col-xs-4 col-md-2 text-center">
+                <img src="./image/icon_iClone.png" width="70">
+                <div>iClone</div>
+            </div>
+            <div class="col-xs-4 col-md-2 text-center">
+                <img src="./image/icon_CTA.png" width="70">
+                <div>CrazyTalk Animator</div>
+            </div>
+
+            <div class="col-xs-4 col-md-2 text-center">
+                <img src="./image/icon_CT.png" width="70">
+                <div>CrazyTalk</div>
+            </div>
+
+            <div class="col-xs-4 col-md-2 text-center">
+                <img src="./image/icon_FFS.png" width="70">
+                <div>FaceFilter</div>
+            </div>
+
+            <div class="col-xs-4 col-md-2 text-center">
+                <img src="./image/icon_Solution.png" width="70">
+                <div>Solution</div>
+            </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+   
+    <div class="container-fluid" style="position:relative;top:0px;">
+        <div class="row">
+        <div class="col-md-12 col-sm-12 center-block" style="float:none">
+             
+             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 center-block prod_top" style="text-align:right;">
+                
+                <div class="sale">        	
+                    <img src="./image/Sale_Ball.png">
+                    <span>CHRISTMAS SALE Up to 34 % Off</span>
+                </div>        
+                <div class="img_top">
+  					<a href="#">
+						<img src="./image/ic6.png" style="max-width:100%">
+					</a>
+				</div>
+				<div class="text_top">
+					<div>. Flexible & handy interface for storytelling and production.</br></div>
+					<div>. Produce stunning visual quality with enhanced rendering plug-in.</br></div>
+					<div>. Refined topology for natural facial animation and body morphs.</br></div>
+					<div>. Control characters' face and body motions via your voice & mouse.</br></div>
+					<div>. Multi-channel mixing Substances,real-time tessellation & material animation.</br></div>
+					<div>. Collaborative content platform for unlimited resources.</br></div>
+				</div> 
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 center-block product" id="product">
+                <div class="step first row">
+                </div>
+
+          	 <div id="buystep">	
+                <div class="step second" id="snd">
+                </div>
+
+                <div class="step third" id="third">
+  
+                </div>
+             </div>
+
+            <div class="show">
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="tab_container" >
+		<div class="row-fluid">
+        
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-11 center-block tabs" style="float:none">			
+                <ul class="nav nav-tabs">
+					<li class="tab active"><a href="#tab1" data-toggle="tab">Best Bundle Deals</a>
+					</li>
+					<li class="tab"><a href="#tab2" data-toggle="tab">Add-on Tools</a>
+					</li>
+					<li class="tab"><a href="#tab3" data-toggle="tab">Edition Comparison</a>
+					</li>
+					<li class="tab"><a href="#tab4" data-toggle="tab">System Requirement</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab1">
+
+						<div class="" style="position:relative;top:0px;">
+                            <div class="row-fluid">
+                                 <div class="col-xs-12 col-sm-6 col-md-6 center-block bundle_pic" style="text-align:left;padding-right:5%">
+                                    <div class="sale">          
+                                        <img src="./image/Sale_Ball.png">
+                                            <span>CHRISTMAS SALE Up to 34% Off</span>
+                                    </div> 
+
+                                    <div>   
+                                        <a href="#">
+                                            <img src="./image/iC6_Bundle1.png" style="max-width:100%">
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 product_bundle">
+                                    <h2>iClone 6 PRO Bundle</h2>
+                                    <div class="row bundle">
+                                        <div class="col-xs-5 col-sm-5 col-m-5">
+                                        <p>This bundle includes:</p>
+                                            <ul>   
+                                                <li>iClone 6 PRO </li>
+                                                <li>3DXchagne 6 PRO</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-xs-7 col-sm-7 col-m-7">
+                                            <p>Free Bonus:</p>
+                                            <ul>   
+                                                <li>Daz Genesis Extension </li>
+                                                <li>Character Designer's Resource Pack</li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                    <h3>1. Choose an edition:</h3>
+                                    <div class="step first_bun">
+                                        <button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="bundleedition_choose('1')" id="bundleedition_now">Now $199</button>
+                                        <button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="bundleedition_choose('2')" id="bundleedition_upgrade">Upgrade $79</button>
+                                    </div>
+
+                                    <div id="buystep"> 
+                                    <div class="step second_bun" id="bundlesnd">
+                                    <h3>2. Choose a Platfrom:</h3>
+                                    <div>
+                                        <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="bundleplatform_choose('2-1')" id="bundleplatform_window">Window</button>
+                                        <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="bundleplatform_choose('2-2')" id="bundleplatform_mac">Mac</button>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <hr color="#AAAAAA">
+                                    <span>From $79</span>
+                                    <!-- <span id="edit"></span><span id="platform"></span><span id="delivery"></span> -->
+                                    <button type="button" class="btn btn-warning btn-lg disabled price" id="bundle_price">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <hr color="gray" width="100%"> -->
+
+                        <div class="" style="position:relative;top:0px;">
+                            <div class="row-fluid">
+                                 <div class="col-xs-12 col-sm-6 col-md-6 center-block bundle_pic" style="text-align:left;padding-right:5%">
+                                    <div class="sale">          
+                                        <img src="./image/Sale_Ball.png">
+                                            <span>CHRISTMAS SALE Up to 34% Off</span>
+                                    </div> 
+                                    <div>
+                                        <a href="#">
+                                            <img src="./image/iC6_Bundle2.png" style="max-width:100%">
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 product_bundle">
+                                    <h2>iClone 6 Animation Pipeline</h2>
+                                    <div class="row bundle">
+                                        <div class="col-xs-5 col-sm-5 col-m-5">
+                                        <p>This bundle includes:</p>
+                                            <ul>   
+                                                <li>iClone 6 PRO </li>
+                                                <li>3DXchagne 6 PRO</li>
+                                                <li>Mocap Device Plug-in(software)</li>
+                                                <li>DA Points 10,000</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-xs-7 col-sm-7 col-m-7">
+                                            <p>Free Bonus:</p>
+                                            <ul>   
+                                                <li>Daz Genesis Extension </li>
+                                                <li>Character Designer's Resource Pack</li>
+                                                <li>Gorf's Wonderland Combo</li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                    <h3>1. Choose an edition:</h3>
+                                    <div class="step first_bun2">
+                                        <button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="bundleedition2_choose('1')" id="bundleedition2_now">Now $199</button>
+                                        <button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="bundleedition2_choose('2')" id="bundleedition2_upgrade">Upgrade $79</button>
+                                    </div>
+
+                                    <div id="buystep"> 
+                                    <div class="step second_bun2" id="bundle2snd">
+                                    <h3>2. Choose a Platfrom:</h3>
+                                    <div>
+                                        <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="bundleplatform2_choose('2-1')" id="bundleplatform2_window">Window</button>
+                                        <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="bundleplatform2_choose('2-2')" id="bundleplatform2_mac">Mac</button>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <hr color="#AAAAAA">
+                                    <span>From $79</span>
+                                    <!-- <span id="edit"></span><span id="platform"></span><span id="delivery"></span> -->
+                                    <button type="button" class="btn btn-warning btn-lg disabled price" id="bundle2_price">Select</button>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+
+					<div class="tab-pane" id="tab2">
+
+						<div class="" style="position:relative;top:0px;">
+                            <div class="row-fluid">
+                                 <div class="col-xs-12 col-sm-6 col-md-6 center-block addon_pic" style="text-align:left;padding-right:5%">
+                                    <div class="sale">          
+                                        <img src="./image/Sale_Ball.png">
+                                            <span>CHRISTMAS SALE Up to 34% Off</span>
+                                    </div> 
+                                    <div>
+                                        <a href="#">
+                                            <img src="./image/iC6_Addon1.png" style="max-width:100%">
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 product_addon">
+                                    <h2>3DXchange6</h2>
+                                    <div class="addon">
+                                        <ul>
+                                            <li>Access to millions of free models from 3D community</li>
+                                            <li>Import any character & motion into iColne</li>
+                                            <li>Refine iClone content by sculpting & painting externally</li>
+                                            <li>Connect iClone users to the entire 3D industry</li>
+                                        </ul>
+                                        <a><h5>know more >></h5></a>
+                                    </div>
+
+                                    <h3>1. Choose an edition:</h3>
+                                    <div class="step first_add">
+                                        <button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="addonedition_choose('1')" id="addonedition_standard">Standard $99</button>
+                                        <button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="addonedition_choose('2')" id="addonedition_pro">Pro $199</button>
+                                        <button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="addonedition_choose('3')" id="addonedition_pipeline">Pipeline $299</button>
+                                    </div>
+
+                                    <div id="buystep"> 
+                                    <div class="step second_add" id="addonsnd">
+                                    <h3>2. Choose a Platfrom:</h3>
+                                    <div>
+                                        <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="addonplatform_choose('2-1')" id="addonplatform_window">Window</button>
+                                        <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="addonplatform_choose('2-2')" id="addonplatform_mac">Mac</button>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <hr color="#AAAAAA">
+                                    <span>From $79</span>
+                                    <!-- <span id="edit"></span><span id="platform"></span><span id="delivery"></span> -->
+                                    <button type="button" class="btn btn-warning btn-lg disabled price" id="addon_price">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr color="gray" width="100%">
+
+                        <div class="" style="position:relative;top:0px;">
+                            <div class="row-fluid">
+                                 <div class="col-xs-12 col-sm-6 col-md-6 center-block addon_pic" style="text-align:left;padding-right:5%">
+                                    <div class="sale">          
+                                        <img src="./image/Sale_Ball.png">
+                                            <span>CHRISTMAS SALE Up to 34% Off</span>
+                                    </div> 
+                                    <div>
+                                        <a href="#">
+                                            <img src="./image/iC6_Addon2.png" style="max-width:100%">
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 product_addon">
+                                    <h2>Substance Designer Complete Bundle</h2>
+                                    <div class="addon">
+                                        <p>Tools,Library,and Traing for iClone users to unleash their creativity and generate their own unique substances.
+                                        </p>
+                                        <p>Exclusive Bonus</p>
+                                        <ul>
+                                            <li>Super Substance Tools($49)</li>
+                                            <li>Substance Learning Kit($39)</li>
+                                        </ul>
+                                        <a><h5>know more >></h5></a>
+                                    </div>
+
+                                    <h3>1. Choose an edition:</h3>
+                                    <div class="step first_add2">
+                                        <button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="addonedition2_choose('1')" id="addonedition2_now">Now $199</button>
+                                        <button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="addonedition2_choose('2')" id="addonedition2_upgrade">Upgrade $79</button>
+                                    </div>
+
+                                    <div id="buystep"> 
+                                    <div class="step second_add2" id="addon2snd">
+                                    <h3>2. Choose a Platfrom:</h3>
+                                    <div>
+                                        <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="addonplatform2_choose('2-1')" id="addonplatform2_window">Window</button>
+                                        <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="addonplatform2_choose('2-2')" id="addonplatform2_mac">Mac</button>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <hr color="#AAAAAA">
+                                    <span>From $79</span>
+                                    <!-- <span id="edit"></span><span id="platform"></span><span id="delivery"></span> -->
+                                    <button type="button" class="btn btn-warning btn-lg disabled price" id="addon2_price">Select</button>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div class="tab-pane" id="tab3">
+						<p>Edition Comparison</p>
+					</div>
+					<div class="tab-pane" id="tab4">
+						<p>System Requirement</p>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+    <div id="product_title"> </div>
+    <div id="sampleArea"> </div>
+
+</body>
+
+</html>
+

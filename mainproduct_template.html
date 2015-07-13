@@ -1,0 +1,82 @@
+<html>
+<head>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png"> -->
+    <title>Blank Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="mainproduct_template.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid" style="position:relative;top:0px;">    
+        <div class="row">
+        <div class="col-md-12 col-sm-12 center-block" style="float:none">
+             
+             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 center-block prod_top" style="text-align:right;">
+                <div class="img_top">
+                    <a href="#">
+                        <img src="./image/ic6.png" style="max-width:100%">
+                    </a>
+                </div>
+                <div class="text_top">
+                    <div>. Flexible & handy interface for storytelling and production.</br></div>
+                    <div>. Produce stunning visual quality with enhanced rendering plug-in.</br></div>
+                    <div>. Refined topology for natural facial animation and body morphs.</br></div>
+                    <div>. Control characters' face and body motions via your voice & mouse.</br></div>
+                    <div>. Multi-channel mixing Substances,real-time tessellation & material animation.</br></div>
+                    <div>. Collaborative content platform for unlimited resources.</br></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 center-block product">
+                <h2>Buy iClone 6</h2>
+                <h3>1. Choose an edition:</h3>
+                <div class="step first row">
+                    <!-- <div class="col-xs-11"> -->
+                    <button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="edition_choose('1')" id="edition_standard">Standard $99</button><!-- </div> -->
+                    <!-- <div class="col-xs-11"> -->
+                    <button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="edition_choose('2')" id="edition_pro">Pro $99</button><!-- </div> -->
+                    <!-- <div class="col-xs-11"> -->
+                    <button type="button" class="btn btn-lg btn-default storebtn" style="border-radius:0" onclick="edition_choose('3')" id="edition_upgrade">Upgrade</button><!-- </div> -->
+                </div>
+
+             <div id="buystep"> 
+                <div class="step second" id="snd">
+                <h3>2. Choose a Platfrom:</h3>
+                <div class="row">
+                    <!-- <div class="col-xs-6 col-sm-6 col-md-3"> -->
+                    <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="platform_choose('2-1')" id="platform_window">Window</button>
+                    <!-- <div class="col-xs-6 col-sm-6 col-md-3"> -->
+                    <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="platform_choose('2-2')" id="platform_mac">Mac</button><!-- </div> -->
+                </div>
+                </div>
+
+                <div class="step third" id="third">
+                <h3>3. Choose Delivery</h3>
+                <div class="row">
+                    <!-- <div class="col-xs-6 col-sm-6 col-md-3"> -->
+                    <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="delivery_choose('3-1')" id="delivery_box">Box</button><!-- </div>
+                    <div class="col-xs-6 col-sm-6 col-md-3"> -->
+                    <button type="button" class="btn btn-lg btn-default storebtn disabled" style="border-radius:0" onclick="delivery_choose('3-2')" id="delivery_download" >Download</button><!-- </div> -->
+                </div>
+                </div>
+             </div>
+                <hr color="#AAAAAA">
+                <span>iClone6</span>
+                <span id="edit"></span><span id="platform"></span><span id="delivery"></span>
+                <button type="button" class="btn btn-warning btn-lg disabled price" id="price">Buy  $99</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
